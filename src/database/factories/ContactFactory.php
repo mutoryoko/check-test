@@ -12,6 +12,8 @@ class ContactFactory extends Factory
 
     public function definition()
     {
+        $customAddress = $this->faker->prefecture() . $this->faker->city() . $this->faker->streetAddress();
+
         return [
             'category_id' => $this->faker->numberBetween(1, 5),
             'first_name' =>  $this->faker->firstName(),
@@ -19,7 +21,7 @@ class ContactFactory extends Factory
             'gender' => $this->faker->numberBetween(1, 3), //1:男性 2:女性 3:その他
             'email' => $this->faker->unique()->safeEmail(),
             'tel' => $this->faker->phoneNumber(),
-            'address' => $this->faker->address(),
+            'address' => $customAddress,
             'building' => $this->faker->secondaryAddress(),
             'detail' => $this->faker->realText(120),
             'created_at' => now(),
