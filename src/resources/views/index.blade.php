@@ -33,11 +33,11 @@
         </div>
         <div class="contact-form__item contact-form__tel">
           <label class="contact-form__label">電話番号 <span class="required-mark">※</span>
-            <input type="tel" name="tel" size="4" placeholder="080">
+            <input type="tel" name="tel" size="5" placeholder="080">
             <div class="hyphen">−</div>
-            <input type="tel" name="tel" size="4" placeholder="1234">
+            <input type="tel" name="tel" size="5" placeholder="1234">
             <div class="hyphen">−</div>
-            <input type="tel" name="tel" size="4" placeholder="5678">
+            <input type="tel" name="tel" size="5" placeholder="5678">
           </label>
         </div>
         <div class="contact-form__item contact-form__address">
