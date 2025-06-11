@@ -1,0 +1,32 @@
+body {
+  color: #8B7969;
+  font-family: "Inika", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.header {
+  border-bottom: 1px solid #e0dfde;
+}
+
+.header__inner {
+  max-width: 1512px;
+  height: 100px;
+  padding: 20px;
+  text-align: center;
+}
+
+.header__logo {
+  font-size: 40px;
+  text-decoration: none;
+  color: #8B7969;
+}
+
+.contact-form__heading {
+  text-align: center;
+}
+
+.contact-form__ttl {
+  font-size: 35px;
+  font-weight: 400;
+}
