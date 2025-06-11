@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
+use App\Models\Category;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $categories = Category::all();
+        return view('index', compact('categories'));
     }
 
     public function confirm(ContactRequest $request)
