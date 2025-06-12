@@ -17,8 +17,10 @@ use App\Http\Controllers\ContactController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+//フォーム画面
 Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
-Route::get('/thanks', function(){
-  return view('thanks');
-});
+Route::post('/thanks', [ContactController::class, 'store']);
+
+//管理画面

@@ -21,4 +21,9 @@ class ContactController extends Controller
         $form = $request->all();
         return view('confirm', compact('form'));
     }
+
+    public function store()
+    {
+        return view('thanks');
+    }
 }
