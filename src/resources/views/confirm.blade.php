@@ -8,7 +8,10 @@
 
 @section('content')
     <div class="confirm__content">
-      <form action="" method="POST">
+      <div class="confirm__heading">
+        <h2 class="confirm__ttl">Confirm</h2>
+      </div>
+      <form class="confirm-form" action="/thanks" method="POST">
         @csrf
         <table class="confirm-table">
           <tr class="confirm-table__row">

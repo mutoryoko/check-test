@@ -29,9 +29,9 @@
         <div class="contact-form__item contact-form__gender">
           <label class="contact-form__label" for="gender1">性別 <span class="required-mark">※</span></label>
           <div class="contact-form__input">
-            <input type="radio" name="gender" value="1" id="gender1" checked>男性
-            <input type="radio" name="gender" value="2">女性
-            <input type="radio" name="gender" value="3">その他
+            <input type="radio" name="gender" value="男性" id="gender1" checked>男性
+            <input type="radio" name="gender" value="女性">女性
+            <input type="radio" name="gender" value="その他">その他
           </div>
         </div>
         @error('gender')
