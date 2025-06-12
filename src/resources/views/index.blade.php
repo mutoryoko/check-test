@@ -20,10 +20,10 @@
             <input type="text" class="last_name__input" name="last_name" id="last_name" placeholder="例: 山田" value="{{ old('last_name') }}">
             <input type="text" name="first_name" placeholder="例: 太郎" value="{{ old('first_name') }}">
             @error('last_name')
-              <p class="error-message">{{ $message }}</p>
+              <p class="error">{{ $message }}</p>
             @enderror
             @error('first_name')
-              <p class="error-message">{{ $message }}</p>
+              <p class="error">{{ $message }}</p>
             @enderror
           </div>
         </div>
@@ -33,12 +33,12 @@
             <div class="contact-form__input gender__input">
               @foreach ($genders as $value => $label)
                 <input type="radio" id="gender_{{ $value }}" name="gender" value="{{ $value }}" {{ old('gender', 1) == $value ? 'checked' : '' }}>
-                <label for="gender_{{ $value }}">{{ $label }}</label>
+                <label class="gender__label" for="gender_{{ $value }}">{{ $label }}</label>
               @endforeach
             </div>
         </div>
         @error('gender')
-          <p class="error-message">{{ $message }}</p>
+          <p class="error">{{ $message }}</p>
         @enderror
         {{-- メールアドレス --}}
         <div class="contact-form__item contact-form__email">
@@ -46,7 +46,7 @@
           <div class="contact-form__input">
             <input type="email" name="email" id="email" placeholder="例: test@example.com" value="{{ old('email') }}">
             @error('email')
-              <p class="error-message">{{ $message }}</p>
+              <p class="error">{{ $message }}</p>
             @enderror
           </div>
         </div>
@@ -59,11 +59,13 @@
             <input type="tel" name="tel2" placeholder="1234" value="{{ old('tel2') }}">
             <span class="hyphen">−</span>
             <input type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}">
-            @if ($errors->has('tel1') || $errors->has('tel2') || $errors->has('tel3'))
-              @php
-                $telError = $errors->first('tel1') ?? $errors->first('tel2') ?? $errors->first('tel3');
-              @endphp
-                <p class="error-message">{{ $telError }}</p>
+            @php
+              $telError = collect([
+                  $errors->first('tel1'), $errors->first('tel2'), $errors->first('tel3'),
+              ])->filter()->first();
+            @endphp
+            @if ($telError)
+              <p class="error">{{ $telError }}</p>
             @endif
           </div>
         </div>
@@ -73,7 +75,7 @@
           <div class="contact-form__input">
             <input type="text" name="address" id="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}">
             @error('address')
-              <p class="error-message">{{ $message }}</p>
+              <p class="error">{{ $message }}</p>
             @enderror
           </div>
         </div>
@@ -97,7 +99,7 @@
               @endforeach
             </select>
             @error('category_id')
-              <p class="error-message">{{ $message }}</p>
+              <p class="error">{{ $message }}</p>
             @enderror
           </div>
         </div>
@@ -107,7 +109,7 @@
           <div class="contact-form__textarea">
             <textarea class="contact-form__textarea--text" name="detail" id="detail" cols="30" rows="5" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
             @error('detail')
-              <p class="error-message contact-form__textarea--error">{{ $message }}</p>
+              <p class="error contact-form__textarea--error">{{ $message }}</p>
             @enderror
           </div>
         </div>
