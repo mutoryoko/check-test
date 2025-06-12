@@ -54,20 +54,17 @@
         <div class="contact-form__item contact-form__tel">
           <p class="contact-form__label">電話番号 <span class="required-mark">※</span></p>
           <div class="contact-form__input">
-            <input type="tel" name="tel1" size="4" placeholder="080" value="{{ old('tel1') }}">
+            <input type="tel" name="tel1" placeholder="080" value="{{ old('tel1') }}">
             <span class="hyphen">−</span>
-            <input type="tel" name="tel2" size="4" placeholder="1234" value="{{ old('tel2') }}">
+            <input type="tel" name="tel2" placeholder="1234" value="{{ old('tel2') }}">
             <span class="hyphen">−</span>
-            <input type="tel" name="tel3" size="4" placeholder="5678" value="{{ old('tel3') }}">
-            @error('tel1')
-              <p class="error-message">{{ $message }}</p>
-            @enderror
-            @error('tel2')
-              <p class="error-message">{{ $message }}</p>
-            @enderror
-            @error('tel3')
-              <p class="error-message">{{ $message }}</p>
-            @enderror
+            <input type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}">
+            @if ($errors->has('tel1') || $errors->has('tel2') || $errors->has('tel3'))
+              @php
+                $telError = $errors->first('tel1') ?? $errors->first('tel2') ?? $errors->first('tel3');
+              @endphp
+                <p class="error-message">{{ $telError }}</p>
+            @endif
           </div>
         </div>
         {{-- 住所 --}}

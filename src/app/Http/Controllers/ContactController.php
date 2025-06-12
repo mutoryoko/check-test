@@ -44,7 +44,7 @@ class ContactController extends Controller
     {
         $form = $request->all();
         $form['tel'] = $form['tel1'] . '-' . $form['tel2'] . '-' . $form['tel3'];
-        unset($form['tel1'], $form['tel2'], $form['tel3']); // 不要なキーを削除
+        unset($form['tel1'], $form['tel2'], $form['tel3']); //不要なキーを削除
         Contact::create($form);
 
         return view('thanks');

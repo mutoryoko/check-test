@@ -112,6 +112,10 @@ input[type="tel"] {
 /* エラーメッセージ */
 
 .error-message {
+  display: inline-block;
   color: #ff9494;
   font-size: 14px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 5px;
 }
