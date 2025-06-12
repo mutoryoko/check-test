@@ -12,18 +12,29 @@ class ContactController extends Controller
     public function index()
     {
         $categories = Category::all();
+
         return view('index', compact('categories'));
     }
 
     public function confirm(ContactRequest $request)
     {
-        $categories = Category::all();
         $form = $request->all();
-        return view('confirm', compact('form'));
+
+        $fullTel = $form['tel1'] . '-' . $form['tel2'] . '-' . $form['tel3'];
+
+        $category = Category::find($form['category_id']);
+        $category_name = $category->content;
+
+        return view('confirm', compact('form', 'fullTel', 'category_name'));
     }
 
-    public function store()
+    public function store(ContactRequest $request)
     {
+        $form = $request->all();
+        $form['tel'] = $form['tel1'] . '-' . $form['tel2'] . '-' . $form['tel3'];
+        unset($form['tel1'], $form['tel2'], $form['tel3']); // 不要なキーを削除
+        Contact::create($form);
+
         return view('thanks');
     }
 }
