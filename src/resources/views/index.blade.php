@@ -29,11 +29,11 @@
         </div>
         {{-- 性別 --}}
         <div class="contact-form__item contact-form__gender">
-          <label class="contact-form__label" for="gender1">性別 <span class="required-mark">※</span></label>
+          <label class="contact-form__label" for="gender">性別 <span class="required-mark">※</span></label>
           <div class="contact-form__input">
-            <input type="radio" name="gender" value="男性" id="gender1" checked>男性
-            <input type="radio" name="gender" value="女性">女性
-            <input type="radio" name="gender" value="その他">その他
+            <input type="radio" name="gender" value="1" id="gender" checked>男性
+            <input type="radio" name="gender" value="2">女性
+            <input type="radio" name="gender" value="3">その他
           </div>
         </div>
         @error('gender')
@@ -53,15 +53,21 @@
         <div class="contact-form__item contact-form__tel">
           <label class="contact-form__label" for="tel1">電話番号 <span class="required-mark">※</span></label>
           <div class="contact-form__input">
-            <input type="tel" name="tel1" id="tel1" size="5" placeholder="080">
-            <div class="hyphen">−</div>
-            <input type="tel" name="tel2" size="5" placeholder="1234">
-            <div class="hyphen">−</div>
-            <input type="tel" name="tel3" size="5" placeholder="5678">
+            <input type="tel" name="tel1" id="tel1" size="4" placeholder="080" value="{{ old('tel1') }}">
+            <span class="hyphen">−</span>
+            <input type="tel" name="tel2" size="4" placeholder="1234" value="{{ old('tel2') }}">
+            <span class="hyphen">−</span>
+            <input type="tel" name="tel3" size="4" placeholder="5678" value="{{ old('tel3') }}">
+            @error('tel1')
+              <p class="error-message">{{ $message }}</p>
+            @enderror
+            @error('tel2')
+              <p class="error-message">{{ $message }}</p>
+            @enderror
+            @error('tel3')
+              <p class="error-message">{{ $message }}</p>
+            @enderror
           </div>
-          @error('tel1','tel2','tel3')
-            <p class="error-message">{{ $message }}</p>
-          @enderror
         </div>
         {{-- 住所 --}}
         <div class="contact-form__item contact-form__address">

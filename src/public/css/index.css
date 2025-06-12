@@ -79,7 +79,6 @@ input[type="tel"] {
   width: 100%;
 }
 
-
 /* 記号 */
 
 .required-mark {
@@ -88,7 +87,6 @@ input[type="tel"] {
 }
 
 .hyphen {
-  display: inline;
   padding: 10px;
 }
 

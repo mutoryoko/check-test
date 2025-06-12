@@ -28,9 +28,9 @@ class ContactRequest extends FormRequest
             'first_name' => 'required | string | max:255',
             'gender' => 'required',
             'email' => 'required | email',
-            'tel1' => 'required | numeric | max:5',
-            'tel2' => 'required | numeric | max:5',
-            'tel3' => 'required | numeric | max:5',
+            'tel1' => 'required | numeric',
+            'tel2' => 'required | numeric',
+            'tel3' => 'required | numeric',
             'address' => 'required | string | max:255',
             'category_id' => 'required | exists:categories,id',
             'detail' => 'required | max:120'
