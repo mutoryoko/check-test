@@ -30,7 +30,7 @@
         {{-- 性別 --}}
         <div class="contact-form__item contact-form__gender">
             <p class="contact-form__label">性別 <span class="required-mark">※</span></p>
-            <div class="contact-form__input">
+            <div class="contact-form__input gender__input">
               @foreach ($genders as $value => $label)
                 <input type="radio" id="gender_{{ $value }}" name="gender" value="{{ $value }}" {{ old('gender', 1) == $value ? 'checked' : '' }}>
                 <label for="gender_{{ $value }}">{{ $label }}</label>

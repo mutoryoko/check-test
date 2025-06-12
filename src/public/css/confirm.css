@@ -1,6 +1,4 @@
-.confirm__content {
-  max-width: 1500px;
-}
+/* ページタイトル */
 
 .confirm__heading {
   text-align: center;
@@ -9,4 +7,84 @@
 .confirm__ttl {
   font-size: 35px;
   font-weight: 400;
+}
+
+/* 確認フォーム */
+
+input {
+  border: none;
+  color: #82756A;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.name__input {
+  width: 180px;
+}
+
+.gender_label {
+  padding: 20px;
+}
+
+.category_name {
+  padding: 20px;
+}
+
+.confirm__content {
+  max-width: 1500px;
+}
+
+.confirm-form {
+  width: 60%;
+  margin: 30px auto;
+}
+
+.confirm-table {
+  width: 100%;
+  border: 1px solid #e0dfde;
+  margin-bottom: 30px;
+}
+
+.confirm-table__header {
+  background: #baa899;
+  color: #fff;
+  font-size: 16px;
+  padding: 20px;
+  text-align: left;
+  border-bottom: 1px solid #e0dfde;
+}
+
+.confirm-table__input {
+  padding: 20px;
+  text-align: center;
+  border-bottom: 1px solid #e0dfde;
+}
+
+.confirm-table__row:last-child .confirm-table__header,
+.confirm-table__row:last-child .confirm-table__input {
+  border-bottom-width: 0;
+}
+
+/* 送信ボタン */
+
+.confirm-form__buttons {
+  text-align: center;
+}
+
+.confirm-form__btn--submit {
+  color: #fff;
+  background: #baa899;
+  border: none;
+  padding: 10px 40px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.confirm-form__btn--edit {
+  color: rgb(73, 73, 122);
+  border: 1px solid rgb(73, 73, 122);
+  padding: 10px 40px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 20px;
 }

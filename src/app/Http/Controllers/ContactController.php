@@ -36,9 +36,8 @@ class ContactController extends Controller
         $fullTel = $form['tel1'] . '-' . $form['tel2'] . '-' . $form['tel3'];
 
         $category = Category::find($form['category_id']);
-        $category_name = $category->content;
 
-        return view('confirm', compact('form', 'gender_label', 'fullTel', 'category_name'));
+        return view('confirm', compact('form', 'gender_label', 'fullTel', 'category'));
     }
 
     public function store(ContactRequest $request)

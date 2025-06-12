@@ -17,21 +17,23 @@
 
 .contact-form {
   width: 60%;
-  margin: 0 auto;
+  margin: 40px auto;
 }
 
 .contact-form__item {
   margin: 30px 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 }
 
 /* 項目 */
 
 .contact-form__label {
+  margin-block-start: 0;
+  margin-block-end: 0;
   display: inline-block;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* 入力フォーム */
@@ -39,6 +41,7 @@
 input,
 textarea,
 select {
+  color: #82756A;
   border: none;
   background: #f4f4f4;
   padding: 10px 20px;

@@ -17,14 +17,15 @@
           <tr class="confirm-table__row">
             <th class="confirm-table__header">お名前</th>
             <td class="conform-table__input">
-              <input type="text" name="last_name" value="{{ $form['last_name'] }}" readonly>
-              <input type="text" name="first_name" value="{{ $form['first_name'] }}" readonly>
+              <input class="name__input" type="text" name="last_name" value="{{ $form['last_name'] }}" readonly>
+              <input class="name__input" type="text" name="first_name" value="{{ $form['first_name'] }}" readonly>
             </td>
           </tr>
           <tr class="confirm-table__row">
             <th class="confirm-table__header">性別</th>
             <td class="conform-table__input">
-              <input type="text" name="gender" value="" readonly>
+              <div class="gender_label">{{ $gender_label }}</div>
+              <input type="hidden" name="gender" value="{{ $form['gender'] }}">
             </td>
           </tr>
           <tr class="confirm-table__row">
@@ -36,7 +37,7 @@
           <tr class="confirm-table__row">
             <th class="confirm-table__header">電話番号</th>
             <td class="conform-table__input">
-              <input type="text" name="tel" value="" readonly>
+              <input type="text" name="tel" value="{{ $fullTel }}" readonly>
             </td>
           </tr>
           <tr class="confirm-table__row">
@@ -54,7 +55,8 @@
           <tr class="confirm-table__row">
             <th class="confirm-table__header">お問い合わせの種類</th>
             <td class="conform-table__input">
-              <input type="text" name="category_id" value="" readonly>
+              <div class="category_name">{{ $category->content }}</div>
+              <input type="hidden" name="category_id" value="{{ $form['category_id'] }}">
             </td>
           </tr>
           <tr class="confirm-table__row">
@@ -64,8 +66,10 @@
             </td>
           </tr>
         </table>
-        <button type="submit" class="confirm__btn-submit">送信</button>
-        <a href="/" class="edit__btn">修正</a>
+        <div class="confirm-form__buttons">
+          <button type="submit" class="confirm-form__btn--submit">送信</button>
+          <a href="/" class="confirm-form__btn--edit">修正</a>
+        </div>
       </form>
     </div>
 @endsection
