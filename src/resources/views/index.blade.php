@@ -11,7 +11,7 @@
       <div class="contact-form__heading">
         <h2 class="contact-form__ttl">Contact</h2>
       </div>
-      <form class="contact-form" action="/confirm" method="POST">
+      <form class="contact-form" action="{{ route('contact.confirm') }}" method="POST">
         @csrf
         {{-- 名前 --}}
         <div class="contact-form__item contact-form__name">
@@ -113,7 +113,6 @@
             @enderror
           </div>
         </div>
-        
         {{-- 確認ボタン --}}
         <div class="contact-form__button">
           <button class="contact-form__btn-submit">確認画面</button>

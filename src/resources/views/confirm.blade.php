@@ -11,7 +11,7 @@
       <div class="confirm__heading">
         <h2 class="confirm__ttl">Confirm</h2>
       </div>
-      <form class="confirm-form" action="/thanks" method="POST">
+      <form class="confirm-form" action="{{ route('contact.store') }}" method="POST">
         @csrf
         <table class="confirm-table">
           <tr class="confirm-table__row">
@@ -67,8 +67,8 @@
           </tr>
         </table>
         <div class="confirm-form__buttons">
-          <button type="submit" class="confirm-form__btn--submit">送信</button>
-          <a href="/" class="confirm-form__btn--edit">修正</a>
+          <button class="confirm-form__btn--submit">送信</button>
+          <a href="{{ route('contact.index') }}" class="confirm-form__btn--edit">修正</a>
         </div>
       </form>
     </div>

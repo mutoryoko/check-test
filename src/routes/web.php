@@ -19,8 +19,8 @@ use App\Http\Controllers\ContactController;
 // });
 
 //フォーム画面
-Route::get('/', [ContactController::class, 'index']);
-Route::post('/confirm', [ContactController::class, 'confirm']);
-Route::post('/thanks', [ContactController::class, 'store']);
+Route::get('/', [ContactController::class, 'index'])->name('contact.index');
+Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
+Route::post('/thanks', [ContactController::class, 'store'])->name('contact.store');
 
 //管理画面
