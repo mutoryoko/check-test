@@ -67,7 +67,7 @@
           </tr>
         </table>
         <div class="confirm-form__buttons">
-          <button class="confirm-form__btn--submit">送信</button>
+          <button type="submit" class="confirm-form__btn--submit">送信</button>
           <a href="{{ route('contact.index') }}" class="confirm-form__btn--edit">修正</a>
         </div>
       </form>

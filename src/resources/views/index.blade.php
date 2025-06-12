@@ -115,7 +115,7 @@
         </div>
         {{-- 確認ボタン --}}
         <div class="contact-form__button">
-          <button class="contact-form__btn-submit">確認画面</button>
+          <button type="submit" class="contact-form__btn-submit">確認画面</button>
         </div>
       </form>
     </div>
