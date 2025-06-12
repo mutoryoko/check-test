@@ -9,7 +9,7 @@ input,textarea,select {
 }
 
 .contact-form {
-  width: 780px;
+  width: 900px;
   margin: 0 auto;
 }
 
@@ -24,12 +24,12 @@ input,textarea,select {
 }
 
 .contact-form__input {
-  width: 50%;
+  width: 60%;
 }
 
 .contact-form__select,
 .contact-form__textarea {
-  width: 50%;
+  width: 60%;
 }
 
 .required-mark {
