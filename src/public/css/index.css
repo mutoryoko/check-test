@@ -1,16 +1,4 @@
-input,textarea,select {
-  border: none;
-  background: #f4f4f4;
-  padding: 10px 20px;
-}
-.contact-form__heading {
-  text-align: center;
-}
-
-.contact-form__ttl {
-  font-size: 35px;
-  font-weight: 400;
-}
+/* ページタイトル */
 
 .contact-form__heading {
   text-align: center;
@@ -20,6 +8,8 @@ input,textarea,select {
   font-size: 35px;
   font-weight: 400;
 }
+
+/* 問合せフォーム */
 
 .contact-form__content {
   max-width: 1500px;
@@ -36,8 +26,44 @@ input,textarea,select {
   justify-content: space-between;
 }
 
+/* 項目 */
+
 .contact-form__label {
   font-size: 20px;
+}
+
+/* 入力フォーム */
+
+input,
+textarea,
+select {
+  border: none;
+  background: #f4f4f4;
+  padding: 10px 20px;
+}
+
+input::placeholder,
+textarea::placeholder,
+.contact-form__select-cat {
+  color: #beb1ab;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+}
+
+input[name="last_name"],
+input[name="first_name"] {
+  width: 40%;
+}
+
+input[name="last_name"] {
+  margin-right: 20px;
+}
+
+input[type="tel"] {
+  width: 20%;
 }
 
 .contact-form__input {
@@ -49,6 +75,13 @@ input,textarea,select {
   width: 60%;
 }
 
+.contact-form__textarea--text{
+  width: 100%;
+}
+
+
+/* 記号 */
+
 .required-mark {
   color: #ff9494;
   font-size: 14px;
@@ -59,11 +92,7 @@ input,textarea,select {
   padding: 10px;
 }
 
-input::placeholder,
-textarea::placeholder,
-.contact-form__select-cat {
-  color: #beb1ab;
-}
+/* 確認ボタン */
 
 .contact-form__button {
   text-align: center;
@@ -75,4 +104,11 @@ textarea::placeholder,
   border: none;
   padding: 10px 40px;
   cursor: pointer;
+}
+
+/* エラーメッセージ */
+
+.error-message {
+  color: #ff9494;
+  font-size: 14px;
 }
