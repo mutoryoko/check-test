@@ -15,7 +15,7 @@
         @csrf
         {{-- 名前 --}}
         <div class="contact-form__item contact-form__name">
-          <label class="contact-form__label" for="last_name">お名前 <span class="required-mark">※</span></label>
+          <p class="contact-form__label" for="last_name">お名前 <span class="required-mark">※</span></p>
           <div class="contact-form__input">
             <input type="text" class="last_name__input" name="last_name" id="last_name" placeholder="例: 山田" value="{{ old('last_name') }}">
             <input type="text" name="first_name" placeholder="例: 太郎" value="{{ old('first_name') }}">
@@ -29,19 +29,20 @@
         </div>
         {{-- 性別 --}}
         <div class="contact-form__item contact-form__gender">
-          <label class="contact-form__label" for="gender">性別 <span class="required-mark">※</span></label>
-          <div class="contact-form__input">
-            <input type="radio" name="gender" value="1" id="gender" checked>男性
-            <input type="radio" name="gender" value="2">女性
-            <input type="radio" name="gender" value="3">その他
-          </div>
+            <p class="contact-form__label">性別 <span class="required-mark">※</span></p>
+            <div class="contact-form__input">
+              @foreach ($genders as $value => $label)
+                <input type="radio" id="gender_{{ $value }}" name="gender" value="{{ $value }}" {{ old('gender', 1) == $value ? 'checked' : '' }}>
+                <label for="gender_{{ $value }}">{{ $label }}</label>
+              @endforeach
+            </div>
         </div>
         @error('gender')
           <p class="error-message">{{ $message }}</p>
         @enderror
         {{-- メールアドレス --}}
         <div class="contact-form__item contact-form__email">
-          <label class="contact-form__label" for="email">メールアドレス <span class="required-mark">※</span></label>
+          <p class="contact-form__label">メールアドレス <span class="required-mark">※</span></p>
           <div class="contact-form__input">
             <input type="email" name="email" id="email" placeholder="例: test@example.com" value="{{ old('email') }}">
             @error('email')
@@ -51,9 +52,9 @@
         </div>
         {{-- 電話番号 --}}
         <div class="contact-form__item contact-form__tel">
-          <label class="contact-form__label" for="tel1">電話番号 <span class="required-mark">※</span></label>
+          <p class="contact-form__label">電話番号 <span class="required-mark">※</span></p>
           <div class="contact-form__input">
-            <input type="tel" name="tel1" id="tel1" size="4" placeholder="080" value="{{ old('tel1') }}">
+            <input type="tel" name="tel1" size="4" placeholder="080" value="{{ old('tel1') }}">
             <span class="hyphen">−</span>
             <input type="tel" name="tel2" size="4" placeholder="1234" value="{{ old('tel2') }}">
             <span class="hyphen">−</span>
@@ -71,7 +72,7 @@
         </div>
         {{-- 住所 --}}
         <div class="contact-form__item contact-form__address">
-          <label class="contact-form__label" for="address">住所 <span class="required-mark">※</span></label>
+          <p class="contact-form__label">住所 <span class="required-mark">※</span></p>
           <div class="contact-form__input">
             <input type="text" name="address" id="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}">
             @error('address')
@@ -81,14 +82,14 @@
         </div>
         {{-- 建物名 --}}
         <div class="contact-form__item contact-form__building">
-          <label class="contact-form__label" for="building">建物名</label>
+          <p class="contact-form__label">建物名</p>
           <div class="contact-form__input">
             <input type="text" name="building" id="building" placeholder="例: 千駄ヶ谷マンション101" value="{{ old('building') }}">
           </div>
         </div>
         {{-- カテゴリ --}}
         <div class="contact-form__item contact-form__category">
-          <label class="contact-form__label" for="category">お問い合わせの種類 <span class="required-mark">※</span></label>
+          <p class="contact-form__label">お問い合わせの種類 <span class="required-mark">※</span></p>
           <div class="contact-form__select">
             <select class="contact-form__select-cat" name="category_id" id="category">
               <option>選択してください</option>
@@ -105,7 +106,7 @@
         </div>
         {{-- お問い合わせ内容 --}}
         <div class="contact-form__item contact-form__detail">
-          <label class="contact-form__label" for="detail">お問い合わせの内容 <span class="required-mark">※</span></label>
+          <p class="contact-form__label">お問い合わせの内容 <span class="required-mark">※</span></p>
           <div class="contact-form__textarea">
             <textarea class="contact-form__textarea--text" name="detail" id="detail" cols="30" rows="5" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
             @error('detail')

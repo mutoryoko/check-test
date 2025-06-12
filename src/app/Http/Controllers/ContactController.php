@@ -13,19 +13,32 @@ class ContactController extends Controller
     {
         $categories = Category::all();
 
-        return view('index', compact('categories'));
+        $genders = [
+            1 => '男性',
+            2 => '女性',
+            3 => 'その他'
+        ];
+
+        return view('index', compact('categories', 'genders'));
     }
 
     public function confirm(ContactRequest $request)
     {
         $form = $request->all();
 
+        $genders = [
+            1 => '男性',
+            2 => '女性',
+            3 => 'その他'
+        ];
+        $gender_label = $genders[$form['gender']]; //value(数値)からlabel(文字列)へ変換
+
         $fullTel = $form['tel1'] . '-' . $form['tel2'] . '-' . $form['tel3'];
 
         $category = Category::find($form['category_id']);
         $category_name = $category->content;
 
-        return view('confirm', compact('form', 'fullTel', 'category_name'));
+        return view('confirm', compact('form', 'gender_label', 'fullTel', 'category_name'));
     }
 
     public function store(ContactRequest $request)
