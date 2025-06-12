@@ -5,19 +5,31 @@ input,textarea,select {
 }
 
 .contact-form__content {
-  max-width: 1512px;
+  max-width: 1500px;
 }
 
 .contact-form {
-  text-align: center;
+  width: 780px;
+  margin: 0 auto;
 }
 
 .contact-form__item {
   margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .contact-form__label {
   font-size: 20px;
+}
+
+.contact-form__input {
+  width: 50%;
+}
+
+.contact-form__select,
+.contact-form__textarea {
+  width: 50%;
 }
 
 .required-mark {
@@ -33,6 +45,10 @@ input::placeholder,
 textarea::placeholder,
 .contact-form__select-cat {
   color: #beb1ab;
+}
+
+.contact-form__button {
+  text-align: center;
 }
 
 .contact-form__btn-submit {

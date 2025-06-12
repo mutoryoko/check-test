@@ -28,9 +28,11 @@ class ContactRequest extends FormRequest
             'first_name' => 'required | string | max:255',
             'gender' => 'required',
             'email' => 'required | email',
-            'tel' => 'required | numeric | max:5',
+            'tel1' => 'required | numeric | max:5',
+            'tel2' => 'required | numeric | max:5',
+            'tel3' => 'required | numeric | max:5',
             'address' => 'required | string | max:255',
-            'category_id' => 'required',
+            'category_id' => 'required | exists:categories,id',
             'detail' => 'required | max:120'
         ];
     }
@@ -47,6 +49,7 @@ class ContactRequest extends FormRequest
             'tel.max' => '電話番号は5桁までの数字で入力してください',
             'address.required' => '住所を入力してください',
             'category_id.required' => 'お問い合わせの種類を選択してください',
+            'category_id.exists' => 'お問い合わせの種類を選択してください',
             'detail.required' => 'お問い合わせの内容を入力してください',
             'detail.max' => 'お問い合わせ内容は120文字以内で入力してください'
         ];
