@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +26,8 @@ Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.co
 Route::post('/thanks', [ContactController::class, 'store'])->name('contact.store');
 
 //管理画面
-Route::get('/register', function(){
-  return view('auth.register');
-});
-Route::get('/login', function(){
-  return view('auth.login');
-});
-Route::get('/admin', function(){
-  return view('auth.admin');
-});
+Route::get('/admin', [AuthController::class, 'index'])->name('auth.admin')->middleware('auth');
+
+// ユーザー登録・ログイン画面
+Route::get('/register', [UserController::class, 'register'])->name('auth.register');
+Route::get('/login', [UserController::class, 'login'])->name('auth.login');

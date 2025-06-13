@@ -13,23 +13,24 @@
 @section('form-title', 'Register')
 
 @section('form')
-  <form class="register-form" action="" method="">
+  <form class="register-form" action="/register" method="post">
+    @csrf
     <div class="register-form__item">
       <label class="form-label" for="name">お名前</label>
       <div class="form-input">
-        <input type="text" name="name" id="name" value="" placeholder="例: 山田　太郎">
+        <input type="text" name="name" id="name" value="{{ old('name') }}" placeholder="例: 山田　太郎">
       </div>
     </div>
     <div class="register-form__item">
       <label class="form-label" for="email">メールアドレス</label>
       <div class="form-input">
-        <input type="email" name="email" value="" placeholder="例: test@example.com">
+        <input type="email" name="email" value="{{ old('email') }}" placeholder="例: test@example.com">
       </div>
     </div>
     <div class="register-form__item">
       <label class="form-label" for="password">パスワード</label>
       <div class="form-input">
-        <input type="password" name="password" id="password" value="" placeholder="例: coachtech1106">
+        <input type="password" name="password" id="password" placeholder="例: coachtech1106">
       </div>
     </div>
     <div class="register-form__button">

@@ -13,17 +13,18 @@
 @section('form-title', 'Login')
 
 @section('form')
-<form class="login-form" action="" method="">
+<form class="login-form" action="/login" method="post">
+  @csrf
   <div class="login-form__item">
     <label class="form-label" for="email">メールアドレス</label>
     <div class="form-input">
-      <input type="email" name="email" value="" placeholder="例: test@example.com">
+      <input type="email" name="email" value="{{ old('email') }}" placeholder="例: test@example.com">
     </div>
   </div>
   <div class="login-form__item">
     <label class="form-label" for="password">パスワード</label>
     <div class="form-input">
-      <input type="password" name="password" id="password" value="" placeholder="例: coachtech1106">
+      <input type="password" name="password" id="password" placeholder="例: coachtech1106">
     </div>
   </div>
   <div class="login-form__button">
