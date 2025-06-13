@@ -24,3 +24,6 @@ Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.co
 Route::post('/thanks', [ContactController::class, 'store'])->name('contact.store');
 
 //管理画面
+Route::get('/register', function(){
+  return view('admin.register');
+});

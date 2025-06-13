@@ -1,13 +1,41 @@
-.main {
-  background: #D9C6B5;
+.header {
+  max-width: 1500px;
+  height: 100px;
+  border-bottom: 1px solid #e0dfde;
+}
+
+.header__inner {
+  width: 100%;
+  display: flex;
+}
+
+.header__logo {
+  color: #8B7969;
+  font-size: 40px;
+  font-weight: lighter;
+  text-decoration: none;
+}
+
+.header__btn {
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #f1ece7;
 }
 
 .content {
-  width: 60%;
-  margin: 60px auto;
+  background: #f1ece7;
+  text-align: center;
+  height: 600px;
+  padding: 60px auto;
 }
 
 .form-wrapper {
+  width: 60%;
   background: #fff;
   padding: 20px 40px;
+}
+
+.form__ttl {
+  color: #8B7969;
+  font-weight: lighter;
 }

@@ -3,17 +3,17 @@
 @section('title', 'Register')
 
 @section('css')
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="{{ asset('css/register.css')}}">
 @endsection
 
 @section('header-btn')
-  <a href="">login</a>
+  <a class="header__btn" href="">login</a>
 @endsection
 
 @section('form-title', 'Register')
 
 @section('form')
-  <form class="register-form">
+  <form class="register-form" action="" method="">
     <div class="register-form__item">
       <label>お名前
         <input type="text" name="name" value="" placeholder="例: 山田　太郎">
