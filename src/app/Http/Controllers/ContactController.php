@@ -33,11 +33,11 @@ class ContactController extends Controller
         ];
         $gender_label = $genders[$form['gender']]; //value(数値)からlabel(文字列)へ変換
 
-        $fullTel = $form['tel1'] . '-' . $form['tel2'] . '-' . $form['tel3'];
+        $form['tel'] = $form['tel1'] . '-' . $form['tel2'] . '-' . $form['tel3'];
 
         $category = Category::find($form['category_id']);
 
-        return view('confirm', compact('form', 'gender_label', 'fullTel', 'category'));
+        return view('confirm', compact('form', 'gender_label', 'category'));
     }
 
     public function store(ContactRequest $request)

@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{{ asset('css/confirm.css') }}">
 @endsection
 
-@section('title', 'confirm')
+@section('title', 'Confirm')
 
 @section('content')
     <div class="confirm__content">
@@ -37,7 +37,7 @@
           <tr class="confirm-table__row">
             <th class="confirm-table__header">電話番号</th>
             <td class="conform-table__input">
-              <input type="text" name="tel" value="{{ $fullTel }}" readonly>
+              <input type="text" name="tel" value="{{ $form['tel'] }}" readonly>
             </td>
           </tr>
           <tr class="confirm-table__row">
