@@ -25,8 +25,11 @@ Route::post('/thanks', [ContactController::class, 'store'])->name('contact.store
 
 //管理画面
 Route::get('/register', function(){
-  return view('admin.register');
+  return view('auth.register');
 });
 Route::get('/login', function(){
-  return view('admin.login');
+  return view('auth.login');
+});
+Route::get('/admin', function(){
+  return view('auth.admin');
 });
