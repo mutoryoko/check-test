@@ -25,16 +25,16 @@
       </div>
       <div class="search-form__wrapper">
         <form class="search-form" action="" method="get">
-          <input type="search" placeholder="名前やメールアドレスを入力してください ">
-          <select name="gender">
+          <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
+          <select class="search-form__gender" name="gender">
             <option value="">性別</option>
           </select>
-          <select name="category">
+          <select class="search-form__category" name="category_id">
             <option value="">お問い合わせの種類</option>
           </select>
-          <input type="date" name="date">
-          <button type="submit">検索</button>
-          <button type="reset">リセット</button>
+          <input class="search-form__date" type="date" name="date">
+          <button class="search-form__btn--submit" type="submit">検索</button>
+          <button class="search-form__btn--reset" type="reset">リセット</button>
         </form>
       </div>
       <div class="export__button">

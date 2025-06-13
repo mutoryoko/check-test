@@ -55,3 +55,55 @@
 }
 
 /* 入力フォーム */
+
+input, select {
+  color: #82756A;
+  border: none;
+  background: #f4f4f4;
+  margin-right: 30px;
+  height: 40px;
+}
+
+input::placeholder {
+  color: #beb1ab;
+}
+
+.search-form__wrapper {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-form__keyword {
+  width: 300px;
+  padding: 15px;
+}
+
+.search-form__gender {
+  padding: 10px 15px;
+}
+
+.search-form__category {
+  padding: 10px 15px;
+}
+
+.search-form__date {
+  padding: 10px 15px;
+}
+
+/* 検索ボタン */
+.search-form__btn--submit {
+  color: #fff;
+  background: #82756A;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.search-form__btn--reset {
+  color: #fff;
+  background: #BEB1A6;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
