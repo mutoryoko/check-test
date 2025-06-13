@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 
-@section('title', 'contact')
+@section('title', 'Contact')
 
 @section('content')
     <div class="contact-form__content">

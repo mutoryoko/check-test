@@ -45,6 +45,7 @@ select {
   border: none;
   background: #f4f4f4;
   padding: 10px 20px;
+  resize: none;
 }
 
 input::placeholder,
