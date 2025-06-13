@@ -23,9 +23,7 @@
       <div class="form__heading">
         <h2 class="form__ttl">@yield('form-title')</h2>
       </div>
-      <div class="form__wrapper">
         @yield('form')
-      </div>
     </div>
   </main>
 </body>

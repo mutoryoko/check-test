@@ -27,3 +27,6 @@ Route::post('/thanks', [ContactController::class, 'store'])->name('contact.store
 Route::get('/register', function(){
   return view('admin.register');
 });
+Route::get('/login', function(){
+  return view('admin.login');
+});
