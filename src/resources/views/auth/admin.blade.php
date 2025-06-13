@@ -46,11 +46,11 @@
       <table class="contacts__table">
         <thead class="contacts__table--head">
           <tr>
-            <th>お名前</th>
-            <th>性別</th>
-            <th>メールアドレス</th>
-            <th>お問い合わせの種類</th>
-            <th></th>
+            <th class="table-label">お名前</th>
+            <th class="table-label">性別</th>
+            <th class="table-label">メールアドレス</th>
+            <th class="table-label">お問い合わせの種類</th>
+            <th class="table-label">詳細</th>
           </tr>
         </thead>
         <tbody class="contacts__table--body">
@@ -59,7 +59,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
+            <td><a href="">詳細</a></td>
           </tr>
         </tbody>
       </table>
