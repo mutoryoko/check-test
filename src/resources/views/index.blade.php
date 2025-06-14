@@ -28,11 +28,14 @@
           </div>
         </div>
         {{-- 性別 --}}
+        @php
+            $selectedGender = old('gender', session('form_input.gender', 1));
+        @endphp
         <div class="contact-form__item contact-form__gender">
             <p class="contact-form__label">性別 <span class="required-mark">※</span></p>
             <div class="contact-form__input gender__input">
               @foreach ($genders as $value => $label)
-                <input type="radio" id="gender_{{ $value }}" name="gender" value="{{ $value }}" {{ old('gender', 1) == $value ? 'checked' : '' }}>
+                <input type="radio" id="gender_{{ $value }}" name="gender" value="{{ $value }}" {{ $selectedGender == $value ? 'checked' : '' }}>
                 <label class="gender__label" for="gender_{{ $value }}">{{ $label }}</label>
               @endforeach
               @error('gender')
@@ -93,7 +96,7 @@
             <select class="contact-form__select-cat" name="category_id" id="category">
               <option>選択してください</option>
               @foreach($categories as $category)
-                <option class="contact-form__select-item" value="{{ $category->id }}" @if($category->id == old('category_id'))selected @endif>
+                <option class="contact-form__select-item" value="{{ $category->id }}" @if($category->id == old('category_id', session('form_input.category_id')))selected @endif>
                   {{ $category->content }}
                 </option>
               @endforeach
