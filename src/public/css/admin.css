@@ -33,13 +33,17 @@
 }
 
 .header__btn {
+  margin: 0 40px 0 auto;
+}
+
+.header__btn--submit {
   text-decoration: none;
   padding: 5px 30px;
   background: rgba(240, 240, 240, 0.6);
   border: 1px solid #D9C6B5;
   font-size: 20px;
   color: #D9C6B5;
-  margin: 0 40px 0 auto;
+  cursor: pointer;
 }
 
 /* メイン */

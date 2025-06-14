@@ -15,7 +15,10 @@
   <header class="header">
     <div class="header__inner">
       <a href="#" class="header__logo">FashionablyLate</a>
-      <a class="header__btn" href="">logout</a>
+      <form class="header__btn" action="{{ route('auth.logout') }}" method="POST">
+        @csrf
+        <button class="header__btn--submit" type="submit">logout</button>
+      </form>
     </div>
   </header>
   <main>

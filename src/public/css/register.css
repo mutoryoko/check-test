@@ -54,7 +54,7 @@
   border: 1px solid #e0dfde;
   width: 600px;
   margin: 40px auto;
-  padding: 60px;
+  padding: 50px;
 }
 
 .form__heading {
@@ -68,8 +68,8 @@
 }
 
 .register-form__item {
-  width: 70%;
-  margin: 0 auto 45px;
+  width: 75%;
+  margin: 0 auto 40px;
 }
 
 .form-label {

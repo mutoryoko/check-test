@@ -25,9 +25,16 @@ Route::get('/', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
 Route::post('/thanks', [ContactController::class, 'store'])->name('contact.store');
 
+// ユーザー登録画面
+Route::get('/register', [UserController::class, 'register'])->name('auth.register');
+Route::post('/register', [UserController::class, 'store'])->name('auth.register.store');
+
+// ログイン画面
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('auth.showLogin');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+
 //管理画面
 Route::get('/admin', [AuthController::class, 'index'])->name('auth.admin')->middleware('auth');
 
-// ユーザー登録・ログイン画面
-Route::get('/register', [UserController::class, 'register'])->name('auth.register');
-Route::get('/login', [UserController::class, 'login'])->name('auth.login');
+// ログアウト
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
