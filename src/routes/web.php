@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminContactController;
 use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +35,8 @@ Route::post('/register', [UserController::class, 'store'])->name('auth.register.
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('auth.showLogin');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
-//管理画面
-Route::get('/admin', [AuthController::class, 'index'])->name('auth.admin')->middleware('auth');
-
 // ログアウト
 Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+
+//管理画面
+Route::get('/admin', [AdminContactController::class, 'index'])->name('auth.admin')->middleware('auth');

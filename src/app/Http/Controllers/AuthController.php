@@ -9,12 +9,6 @@ use App\Http\Requests\LoginRequest;
 
 class AuthController extends Controller
 {
-    // 管理画面表示
-    public function index()
-    {
-        return view('auth.admin');
-    }
-
     // ログイン画面表示
     public function showLoginForm()
     {

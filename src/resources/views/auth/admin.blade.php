@@ -31,9 +31,15 @@
           <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
           <select class="search-form__gender" name="gender">
             <option value="">性別</option>
+            {{-- @foreach ($genders as $value => $label)
+              <option value="{{ $value }}">{{ $label }}</option>
+            @endforeach --}}
           </select>
           <select class="search-form__category" name="category_id">
-            <option value="">お問い合わせの種類</option>
+            <option>お問い合わせの種類</option>
+            {{-- @foreach ($categories as $category)
+              <option value="{{ $category->id }}">{{ $category->content }}</option>
+            @endforeach --}}
           </select>
           <input class="search-form__date" type="date" name="date">
           <button class="search-form__btn--submit" type="submit">検索</button>
@@ -43,7 +49,7 @@
       <div class="export__button">
         <a class="export__btn--submit" download="#">エクスポート</a>
       </div>
-      <div class="page">
+      <div class="pages">
         {{-- {{ $contacts->links() }} --}}
       </div>
       <table class="contacts__table">
