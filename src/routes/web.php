@@ -27,7 +27,7 @@ Route::get('/', [ContactController::class, 'index'])->name('contact.index');
 Route::post('/', [ContactController::class, 'send'])->name('contact.send');
 Route::get('/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
 Route::post('/confirm', [ContactController::class, 'store'])->name('contact.store');
-Route::post('/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
+Route::get('/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
 
 // ユーザー登録画面
 Route::get('/register', [UserController::class, 'index'])->name('auth.register');

@@ -23,10 +23,27 @@ class ContactController extends Controller
         return view('index', compact('categories', 'genders'));
     }
 
-    // 確認画面表示
-    public function confirm(ContactRequest $request)
+    // フォーム内容送信
+    public function send(ContactRequest $request)
     {
-        $form = $request->all();
+        $validated = $request->validated(); // 必須項目
+        $additional = $request->only(['building']); // 任意項目
+        $form_input = array_merge($validated, $additional);
+
+        $request->session()->put("form_input", $form_input);
+
+        return redirect()->route('contact.confirm');
+    }
+
+    // 確認画面表示
+    public function confirm(Request $request)
+    {
+        $input = $request->session()->get('form_input');
+        if (!$input) {
+            return redirect('/')->with('error', '入力情報が見つかりません。');
+        }
+
+        $form = $input;
 
         $genders = [
             1 => '男性',
@@ -43,15 +60,29 @@ class ContactController extends Controller
     }
 
     // 登録処理
-    public function store(ContactRequest $request)
+    public function store(Request $request)
     {
-        $form = $request->all();
+        $input = $request->session()->get('form_input');
+        if (!$input) {
+            return redirect('/')->with('error', 'セッションが切れました。再度入力してください。');
+        }
+
+        $form = $input;
 
         $form['tel'] = $form['tel1'] . '-' . $form['tel2'] . '-' . $form['tel3'];
         unset($form['tel1'], $form['tel2'], $form['tel3']); //不要なキーを削除
 
         Contact::create($form);
 
+        $request->session()->forget('form_input');
+
         return redirect('/thanks');
+    }
+
+    // 完了画面表示
+
+    public function thanks()
+    {
+        return view('thanks');
     }
 }

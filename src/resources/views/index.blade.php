@@ -11,7 +11,7 @@
       <div class="contact-form__heading">
         <h2 class="contact-form__ttl">Contact</h2>
       </div>
-      <form class="contact-form" action="{{ route('contact.confirm') }}" method="POST">
+      <form class="contact-form" action="{{ route('contact.send') }}" method="POST">
         @csrf
         {{-- 名前 --}}
         <div class="contact-form__item contact-form__name">
@@ -35,11 +35,11 @@
                 <input type="radio" id="gender_{{ $value }}" name="gender" value="{{ $value }}" {{ old('gender', 1) == $value ? 'checked' : '' }}>
                 <label class="gender__label" for="gender_{{ $value }}">{{ $label }}</label>
               @endforeach
+              @error('gender')
+                <p class="error">{{ $message }}</p>
+              @enderror
             </div>
         </div>
-        @error('gender')
-          <p class="error">{{ $message }}</p>
-        @enderror
         {{-- メールアドレス --}}
         <div class="contact-form__item contact-form__email">
           <p class="contact-form__label">メールアドレス <span class="required-mark">※</span></p>
