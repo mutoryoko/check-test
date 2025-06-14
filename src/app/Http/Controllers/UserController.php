@@ -10,7 +10,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function register()
+    public function index()
     {
         return view('auth.register');
     }

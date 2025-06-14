@@ -28,11 +28,11 @@ Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.co
 Route::post('/thanks', [ContactController::class, 'store'])->name('contact.store');
 
 // ユーザー登録画面
-Route::get('/register', [UserController::class, 'register'])->name('auth.register');
+Route::get('/register', [UserController::class, 'index'])->name('auth.register');
 Route::post('/register', [UserController::class, 'store'])->name('auth.register.store');
 
 // ログイン画面
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('auth.showLogin');
+Route::get('/login', [AuthController::class, 'index'])->name('auth.showLogin');
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
 // ログアウト
