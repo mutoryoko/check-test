@@ -9,6 +9,7 @@ use App\Models\Contact;
 
 class ContactController extends Controller
 {
+    // お問い合わせフォーム画面表示
     public function index()
     {
         $categories = Category::all();
@@ -22,6 +23,7 @@ class ContactController extends Controller
         return view('index', compact('categories', 'genders'));
     }
 
+    // 確認画面表示
     public function confirm(ContactRequest $request)
     {
         $form = $request->all();
@@ -40,13 +42,16 @@ class ContactController extends Controller
         return view('confirm', compact('form', 'gender_label', 'category'));
     }
 
+    // 登録処理
     public function store(ContactRequest $request)
     {
         $form = $request->all();
+
         $form['tel'] = $form['tel1'] . '-' . $form['tel2'] . '-' . $form['tel3'];
         unset($form['tel1'], $form['tel2'], $form['tel3']); //不要なキーを削除
+
         Contact::create($form);
 
-        return view('thanks');
+        return redirect('/thanks');
     }
 }

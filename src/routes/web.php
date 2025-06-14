@@ -24,8 +24,10 @@ use App\Http\Controllers\UserController;
 
 //フォーム画面
 Route::get('/', [ContactController::class, 'index'])->name('contact.index');
-Route::post('/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
-Route::post('/thanks', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/', [ContactController::class, 'send'])->name('contact.send');
+Route::get('/confirm', [ContactController::class, 'confirm'])->name('contact.confirm');
+Route::post('/confirm', [ContactController::class, 'store'])->name('contact.store');
+Route::post('/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
 
 // ユーザー登録画面
 Route::get('/register', [UserController::class, 'index'])->name('auth.register');
