@@ -12,11 +12,9 @@ class ContactController extends Controller
     // お問い合わせフォーム画面表示
     public function index()
     {
-        $categories = Category::all();
-
         $genders = config('constants.genders');
 
-        return view('index', compact('categories', 'genders'));
+        return view('index', compact('genders'));
     }
 
     // フォーム内容送信

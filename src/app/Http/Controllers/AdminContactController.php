@@ -19,11 +19,10 @@ class AdminContactController extends Controller
         $contacts = Contact::with('category')->latest()->paginate(7);
 
         $genders = config('constants.genders');
-        $gender_label = $genders[$contacts->gender];
 
-        $categories = Category::all();
+        // $categories = Category::all();
 
-        return view('auth.admin', compact('contacts', 'gender_label', 'categories'));
+        return view('auth.admin', compact('contacts', 'gender_label'));
     }
 
     public function search(Request $request)

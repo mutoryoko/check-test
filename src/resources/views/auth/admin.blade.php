@@ -55,7 +55,7 @@
       </div>
       <div class="d-flex justify-content-between align-items-center">
         <a class="export__button" download="#">エクスポート</a>
-        {{-- {{ $contacts->links() }} --}}
+        {{ $contacts->links() }}
       </div>
       <table class="contacts__table">
         <thead class="contacts__table--head">
