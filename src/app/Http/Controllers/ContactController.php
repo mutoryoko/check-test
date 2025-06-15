@@ -14,11 +14,7 @@ class ContactController extends Controller
     {
         $categories = Category::all();
 
-        $genders = [
-            1 => '男性',
-            2 => '女性',
-            3 => 'その他'
-        ];
+        $genders = config('constants.genders');
 
         return view('index', compact('categories', 'genders'));
     }
