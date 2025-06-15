@@ -1,3 +1,7 @@
+@php
+    use Illuminate\Pagination\Paginator;
+@endphp
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
