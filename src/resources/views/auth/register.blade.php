@@ -7,13 +7,13 @@
 @endsection
 
 @section('header-btn')
-  <a class="header__btn" href="{{ route('auth.showLogin') }}">login</a>
+  <a class="header__btn" href="{{ route('showLogin') }}">login</a>
 @endsection
 
 @section('form-title', 'Register')
 
 @section('form')
-  <form class="register-form" action="{{ route('auth.register.store') }}" method="post">
+  <form class="register-form" action="{{ route('register.store') }}" method="post">
     @csrf
     <div class="register-form__item">
       <label class="form-label" for="name">お名前</label>

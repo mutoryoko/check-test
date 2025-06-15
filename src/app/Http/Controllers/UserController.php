@@ -10,11 +10,13 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    // ユーザー登録画面表示
     public function index()
     {
         return view('auth.register');
     }
 
+    // ユーザー登録処理
     public function store(RegisterRequest $request)
     {
         $validated = $request->validated();

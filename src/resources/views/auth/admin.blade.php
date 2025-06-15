@@ -17,7 +17,7 @@
   <header class="header">
     <div class="header__inner">
       <a href="#" class="header__logo">FashionablyLate</a>
-      <form class="header__btn" action="{{ route('auth.logout') }}" method="POST">
+      <form class="header__btn" action="{{ route('logout') }}" method="POST">
         @csrf
         <button class="header__btn--submit" type="submit">logout</button>
       </form>
@@ -29,7 +29,7 @@
         <h2 class="form__ttl">Admin</h2>
       </div>
       <div class="search-form__wrapper">
-        <form class="search-form" action="" method="get">
+        <form class="search-form" action="{{ route('search') }}" method="get">
           <div class="search-form__inputs">
             <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
             <select class="search-form__gender" name="gender">

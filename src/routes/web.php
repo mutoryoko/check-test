@@ -29,16 +29,21 @@ Route::get('/confirm', [ContactController::class, 'confirm'])->name('contact.con
 Route::post('/confirm', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/thanks', [ContactController::class, 'thanks'])->name('contact.thanks');
 
-// ユーザー登録画面
-Route::get('/register', [UserController::class, 'index'])->name('auth.register');
-Route::post('/register', [UserController::class, 'store'])->name('auth.register.store');
+Route::middleware('guest')->group(function () {
+  // ユーザー登録画面
+  Route::get('/register', [UserController::class, 'index'])->name('register');
+  Route::post('/register', [UserController::class, 'store'])->name('register.store');
 
-// ログイン画面
-Route::get('/login', [AuthController::class, 'index'])->name('auth.showLogin')->middleware('guest');
-Route::post('/login', [AuthController::class, 'login'])->name('auth.login')->middleware('guest');
+  // ログイン画面
+  Route::get('/login', [AuthController::class, 'index'])->name('showLogin');
+  Route::post('/login', [AuthController::class, 'login'])->name('login');
+});
 
 // ログアウト
-Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout')->middleware('auth');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 //管理画面
-Route::resource('/admin', AdminContactController::class)->middleware('auth');
+Route::resource('/admin', AdminContactController::class)->only(['index', 'show', 'destroy'])->middleware('auth');
+
+// 検索
+Route::get('/admin', [AdminContactController::class, 'search'])->name('search')->middleware('auth');
