@@ -41,7 +41,7 @@ class ContactController extends Controller
 
         $form = $input;
 
-        $genders = [1 => '男性', 2 => '女性', 3 => 'その他'];
+        $genders = config('constants.genders');
         $gender_label = $genders[$form['gender']]; //value(数値)からlabel(文字列)へ変換
 
         $form['tel'] = $form['tel1'] . '-' . $form['tel2'] . '-' . $form['tel3'];

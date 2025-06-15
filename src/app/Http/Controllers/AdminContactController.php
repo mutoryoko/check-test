@@ -16,24 +16,25 @@ class AdminContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::latest()->paginate(7);
+        $contacts = Contact::with('category')->latest()->paginate(7);
 
         $genders = config('constants.genders');
+        $gender_label = $genders[$contacts->gender];
 
         $categories = Category::all();
-
-        return view('auth.admin', compact('contacts', 'genders', 'categories'));
+        
+        return view('auth.admin', compact('contacts', 'gender_label', 'categories'));
     }
 
     public function search(Request $request)
     {
-        $contacts = Contact::with('category')
-            ->CategorySearch($request->category_id)
-            ->KeywordSearch($request->keyword)
-            ->get();
-        $categories = Category::all();
+        // $contacts = Contact::with('category')
+        //     ->CategorySearch($request->category_id)
+        //     ->KeywordSearch($request->keyword)
+        //     ->get();
+        // $categories = Category::all();
 
-        return view('auth.admin', compact('contacts', 'categories'));
+        // return view('auth.admin', compact('contacts', 'categories'));
     }
 
     /**

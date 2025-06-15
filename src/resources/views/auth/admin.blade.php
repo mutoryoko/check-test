@@ -35,8 +35,8 @@
             <select class="search-form__gender" name="gender">
               <option value="">性別</option>
               <option value="">全て</option>
-              @foreach ($genders as $gender)
-                <option value="{{ $gender['value'] }}">{{ $gender['label'] }}</option>
+              @foreach (config('constants.genders') as $value => $label)
+                <option value="{{ $value }}">{{ $label }}</option>
               @endforeach
             </select>
             <select class="search-form__category" name="category_id">
@@ -73,15 +73,7 @@
                 <td>{{ $contact->last_name }}　{{$contact->first_name}}</td>
                 <td>
                   <input type="hidden" value="{{ $contact->gender }}" />
-                  @php
-                    if ($contact['gender'] == '1') {
-                        echo '男性';
-                    } elseif ($contact['gender'] == '2') {
-                        echo '女性';
-                    } else {
-                        echo 'その他';
-                    }
-                  @endphp
+                  {{ $gender_label }}
                 </td>
                 <td>{{ $contact->email }}</td>
                 <td>{{ $contact->category->content }}</td>
