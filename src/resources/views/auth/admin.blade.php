@@ -32,15 +32,15 @@
           <select class="search-form__gender" name="gender">
             <option value="">性別</option>
             <option value="">全て</option>
-            {{-- @foreach ($genders as $value => $label)
+            @foreach ($genders as $value => $label)
               <option value="{{ $value }}">{{ $label }}</option>
-            @endforeach --}}
+            @endforeach
           </select>
           <select class="search-form__category" name="category_id">
             <option>お問い合わせの種類</option>
-            {{-- @foreach ($categories as $category)
+            @foreach ($categories as $category)
               <option value="{{ $category->id }}">{{ $category->content }}</option>
-            @endforeach --}}
+            @endforeach
           </select>
           <input class="search-form__date" type="date" name="date">
           <button class="search-form__btn--submit" type="submit">検索</button>
@@ -64,15 +64,18 @@
           </tr>
         </thead>
         <tbody class="contacts__table--body">
-          <tr>
-            @foreach ($contacts as $contact)
-              <td>{{ $contact->name }}</td>
-              <td>{{ $contact->gender }}</td>
-              <td>{{ $contact->email }}</td>
-              <td>{{ $contact->category_id }}</td>
-              <td><a href="">詳細</a></td>
-            @endforeach
-          </tr>
+          @php
+            $name = $contacts['last_name'].$contacts['first_name'];
+          @endphp
+          @foreach ($contacts as $contact)
+            <tr>
+                <td>{{ $contact->last_name }}　{{$contact->first_name}}</td>
+                <td>{{ $contact->gender }}</td>
+                <td>{{ $contact->email }}</td>
+                <td>{{ $contact->category_id }}</td>
+                <td><a class="detail__btn" href="">詳細</a></td>
+            </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

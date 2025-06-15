@@ -16,9 +16,7 @@ class AdminContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::where('created_at')
-            ->latest()
-            ->paginate(7);
+        $contacts = Contact::latest()->paginate(7);
 
         $genders = [
             1 => '男性',
@@ -26,7 +24,7 @@ class AdminContactController extends Controller
             3 => 'その他'
         ];
 
-        $categories = Category::where('id', 'content')->get();
+        $categories = Category::all();
 
         return view('auth.admin', compact('contacts', 'genders', 'categories'));
     }
