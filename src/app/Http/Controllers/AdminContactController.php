@@ -16,13 +16,9 @@ class AdminContactController extends Controller
      */
     public function index()
     {
-        $contacts = Contact::latest()->paginate(7);
+        $contacts = Contact::with('category')->latest()->paginate(7);
 
-        $genders = [
-            1 => '男性',
-            2 => '女性',
-            3 => 'その他'
-        ];
+        $genders = [1 => '男性', 2 => '女性', 3 => 'その他'];
 
         $categories = Category::all();
 

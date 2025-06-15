@@ -68,16 +68,13 @@
           </tr>
         </thead>
         <tbody class="contacts__table--body">
-          @php
-            $name = $contacts['last_name'].$contacts['first_name'];
-          @endphp
           @foreach ($contacts as $contact)
-            <tr>
+            <tr class="tbody-row">
                 <td>{{ $contact->last_name }}　{{$contact->first_name}}</td>
                 <td>{{ $contact->gender }}</td>
                 <td>{{ $contact->email }}</td>
-                <td>{{ $contact->category_id }}</td>
-                <td><a class="detail__btn" href="">詳細</a></td>
+                <td>{{ $contact->category->content }}</td>
+                <td>詳細</td>
             </tr>
           @endforeach
         </tbody>
