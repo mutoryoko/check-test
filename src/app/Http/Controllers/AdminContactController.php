@@ -22,7 +22,7 @@ class AdminContactController extends Controller
         $gender_label = $genders[$contacts->gender];
 
         $categories = Category::all();
-        
+
         return view('auth.admin', compact('contacts', 'gender_label', 'categories'));
     }
 

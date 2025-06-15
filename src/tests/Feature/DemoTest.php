@@ -15,15 +15,18 @@ class DemoTest extends TestCase
      *
      * @return void
      */
-    public function index()
+    public function test_user_can_login_with_correct_credentials()
     {
-        $contacts = Contact::with('category')->latest()->paginate(7);
+        $user = \App\Models\User::factory()->create([
+            'password' => bcrypt('password123'),
+        ]);
 
-        $genders = config('constants.genders');
-        $gender_label = $genders[$contacts->gender];
+        $response = $this->post('/login', [
+            'email' => $user->email,
+            'password' => 'password123',
+        ]);
 
-        $categories = Category::all();
-
-        return view('auth.admin', compact('contacts', 'gender_label', 'categories'));
+        $response->assertRedirect('/admin');
+        $this->assertAuthenticatedAs($user);
     }
 }
