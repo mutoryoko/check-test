@@ -32,6 +32,11 @@
   text-decoration: none;
 }
 
+.header__logo:hover {
+  color: #8B7969;
+  text-decoration: none;
+}
+
 .header__btn {
   margin: 0 40px 0 auto;
 }
@@ -101,6 +106,7 @@ input::placeholder {
 }
 
 /* 検索ボタン */
+
 .search-form__btn--submit {
   color: #fff;
   background: #82756A;
@@ -118,19 +124,22 @@ input::placeholder {
   margin-left: 10px;
 }
 
-/* エクスポート・ページネーション */
+/* エクスポート */
+
 .export__button {
-  display: inline-block;
+  display: inline;
   font-size: 14px;
   color: #8B7969;
   background: rgba(225, 219, 214, 0.6);
   border: none;
   padding: 8px 20px;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.pages {
-  display: inline-block;
+.export__button:hover {
+  color: #b0a8a1;
+  text-decoration: none;
 }
 
 /* テーブル */

@@ -1,7 +1,3 @@
-@php
-    use Illuminate\Pagination\Paginator;
-@endphp
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -14,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/custom.css') }}"
 </head>
 <body>
   <header class="header">
@@ -51,10 +49,8 @@
           <button class="search-form__btn--reset" type="reset">リセット</button>
         </form>
       </div>
-      <div class="export__button">
-        <a class="export__btn--submit" download="#">エクスポート</a>
-      </div>
-      <div class="pages">
+      <div class="d-flex justify-content-between align-items-center mt-4">
+        <a class="export__button" download="#">エクスポート</a>
         {{ $contacts->links() }}
       </div>
       <table class="contacts__table">

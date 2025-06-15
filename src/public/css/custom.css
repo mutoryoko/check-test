@@ -1,0 +1,21 @@
+/* ページネーション */
+
+.pagination {
+  margin: 0;
+}
+
+.page-link {
+  color: #8B7969;
+}
+
+.page-link:hover {
+  color: #fff;
+  background-color: #8B7969;
+  border-color: #8B7969;
+}
+
+.page-item.active .page-link {
+  background-color: #8B7969;
+  border-color: #8B7969;
+  color: #fff;
+}
