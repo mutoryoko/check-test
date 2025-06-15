@@ -39,11 +39,13 @@ Route::middleware('guest')->group(function () {
   Route::post('/login', [AuthController::class, 'login'])->name('login');
 });
 
-// ログアウト
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+Route::middleware('auth')->group(function () {
+  //管理画面
+  Route::resource('/admin', AdminContactController::class)->only(['index', 'show', 'destroy']);
 
-//管理画面
-Route::resource('/admin', AdminContactController::class)->only(['index', 'show', 'destroy'])->middleware('auth');
+  // 検索
+  Route::get('/admin', [AdminContactController::class, 'search'])->name('search');
 
-// 検索
-Route::get('/admin', [AdminContactController::class, 'search'])->name('search')->middleware('auth');
+  // ログアウト
+  Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+});

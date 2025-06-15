@@ -23,6 +23,6 @@ class UserController extends Controller
         $validated['password'] = Hash::make($request->password);
         User::create($validated);
 
-        return view('auth.login');
+        return view('auth.admin');
     }
 }
