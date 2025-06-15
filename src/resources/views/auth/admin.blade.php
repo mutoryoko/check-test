@@ -41,9 +41,9 @@
             </select>
             <select class="search-form__category" name="category_id">
               <option>お問い合わせの種類</option>
-              {{-- @foreach ($categories as $category)
+              @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->content }}</option>
-              @endforeach --}}
+              @endforeach
             </select>
             <input class="search-form__date" type="date" name="date">
           </div>
@@ -55,7 +55,7 @@
       </div>
       <div class="d-flex justify-content-between align-items-center">
         <a class="export__button" download="#">エクスポート</a>
-        {{ $contacts->links() }}
+        {{-- {{ $contacts->links() }} --}}
       </div>
       <table class="contacts__table">
         <thead class="contacts__table--head">
