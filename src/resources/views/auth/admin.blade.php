@@ -31,6 +31,7 @@
           <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
           <select class="search-form__gender" name="gender">
             <option value="">性別</option>
+            <option value="">全て</option>
             {{-- @foreach ($genders as $value => $label)
               <option value="{{ $value }}">{{ $label }}</option>
             @endforeach --}}
@@ -50,7 +51,7 @@
         <a class="export__btn--submit" download="#">エクスポート</a>
       </div>
       <div class="pages">
-        {{-- {{ $contacts->links() }} --}}
+        {{ $contacts->links() }}
       </div>
       <table class="contacts__table">
         <thead class="contacts__table--head">
@@ -64,11 +65,13 @@
         </thead>
         <tbody class="contacts__table--body">
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a href="">詳細</a></td>
+            @foreach ($contacts as $contact)
+              <td>{{ $contact->name }}</td>
+              <td>{{ $contact->gender }}</td>
+              <td>{{ $contact->email }}</td>
+              <td>{{ $contact->category_id }}</td>
+              <td><a href="">詳細</a></td>
+            @endforeach
           </tr>
         </tbody>
       </table>

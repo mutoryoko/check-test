@@ -34,11 +34,11 @@ Route::get('/register', [UserController::class, 'index'])->name('auth.register')
 Route::post('/register', [UserController::class, 'store'])->name('auth.register.store');
 
 // ログイン画面
-Route::get('/login', [AuthController::class, 'index'])->name('auth.showLogin');
-Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+Route::get('/login', [AuthController::class, 'index'])->name('auth.showLogin')->middleware('guest');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login')->middleware('guest');
 
 // ログアウト
-Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+Route::post('/logout', [AuthController::class, 'logout'])->name('auth.logout')->middleware('auth');
 
 //管理画面
-Route::get('/admin', [AdminContactController::class, 'index'])->name('auth.admin')->middleware('auth');
+Route::resource('/admin', AdminContactController::class)->middleware('auth');
