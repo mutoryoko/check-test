@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&family=Noto+Serif+JP&display=swap" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/custom.css') }}"
+  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 <body>
   <header class="header">
@@ -30,26 +30,30 @@
       </div>
       <div class="search-form__wrapper">
         <form class="search-form" action="" method="get">
-          <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
-          <select class="search-form__gender" name="gender">
-            <option value="">性別</option>
-            <option value="">全て</option>
-            @foreach ($genders as $value => $label)
-              <option value="{{ $value }}">{{ $label }}</option>
-            @endforeach
-          </select>
-          <select class="search-form__category" name="category_id">
-            <option>お問い合わせの種類</option>
-            @foreach ($categories as $category)
-              <option value="{{ $category->id }}">{{ $category->content }}</option>
-            @endforeach
-          </select>
-          <input class="search-form__date" type="date" name="date">
-          <button class="search-form__btn--submit" type="submit">検索</button>
-          <button class="search-form__btn--reset" type="reset">リセット</button>
+          <div class="search-form__inputs">
+            <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
+            <select class="search-form__gender" name="gender">
+              <option value="">性別</option>
+              <option value="">全て</option>
+              @foreach ($genders as $value => $label)
+                <option value="{{ $value }}">{{ $label }}</option>
+              @endforeach
+            </select>
+            <select class="search-form__category" name="category_id">
+              <option>お問い合わせの種類</option>
+              @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->content }}</option>
+              @endforeach
+            </select>
+            <input class="search-form__date" type="date" name="date">
+          </div>
+          <div class="search-form__buttons">
+            <button class="search-form__btn--submit" type="submit">検索</button>
+            <button class="search-form__btn--reset" type="reset">リセット</button>
+          </div>
         </form>
       </div>
-      <div class="d-flex justify-content-between align-items-center mt-4">
+      <div class="d-flex justify-content-between align-items-center">
         <a class="export__button" download="#">エクスポート</a>
         {{ $contacts->links() }}
       </div>

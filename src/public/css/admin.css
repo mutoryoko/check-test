@@ -84,25 +84,42 @@ input::placeholder {
 }
 
 .search-form__wrapper {
-  text-align: center;
+  width: 100%;
   margin-bottom: 20px;
 }
 
+.search-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search-form___inputs {
+  align-items: center;
+}
+
 .search-form__keyword {
-  width: 300px;
-  padding: 15px;
+  width: 350px;
+  height: 40px;
+  padding: 0 15px;
+  margin-right: 20px;
+  vertical-align: middle;
 }
 
 .search-form__gender {
   padding: 10px 15px;
+  margin-right: 20px;
+  vertical-align: middle;
 }
 
 .search-form__category {
   padding: 10px 15px;
+  margin-right: 20px;
+  vertical-align: middle;
 }
 
 .search-form__date {
   padding: 10px 15px;
+  vertical-align: middle;
 }
 
 /* 検索ボタン */
@@ -111,7 +128,7 @@ input::placeholder {
   color: #fff;
   background: #82756A;
   border: none;
-  padding: 10px 30px;
+  padding: 8px 30px;
   cursor: pointer;
 }
 
@@ -119,7 +136,7 @@ input::placeholder {
   color: #fff;
   background: #BEB1A6;
   border: none;
-  padding: 10px 15px;
+  padding: 8px 15px;
   cursor: pointer;
   margin-left: 10px;
 }
