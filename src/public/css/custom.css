@@ -19,3 +19,22 @@
   border-color: #8B7969;
   color: #fff;
 }
+
+/* モーダル */
+
+/* 詳細ボタン */
+.btn-primary {
+  color: #D9C6B5;
+  background-color: rgba(240, 240, 240, 0.6);
+  border-color: #D9C6B5;
+  padding: 10px 20px;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled):active {
+  color: #d8ab85;
+  background-color: rgba(240, 240, 240, 0.6);
+  border-color: #D9C6B5;
+  box-shadow: none;
+}

@@ -14,7 +14,7 @@
 <body>
   <header class="header">
     <div class="header__inner">
-      <a href="#" class="header__logo">FashionablyLate</a>
+      <a href="{{ route('register') }}" class="header__logo">FashionablyLate</a>
       @yield('header-btn')
     </div>
   </header>

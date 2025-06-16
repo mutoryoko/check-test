@@ -34,15 +34,12 @@ class Contact extends Model
             $query->where(function ($q) use ($keyword) {
                 $q->where('last_name', 'like', '%' . $keyword . '%')
                     ->orWhere('first_name', 'like', '%' . $keyword . '%')
-                    ->orWhere('email', 'like', '%' . $keyword . '%')
-                    ->orWhere('tel', 'like', '%' . $keyword . '%')
-                    ->orWhere('address', 'like', '%' . $keyword . '%')
-                    ->orWhere('building', 'like', '%' . $keyword . '%');
+                    ->orWhere('email', 'like', '%' . $keyword . '%');
             });
         }
         return $query;
     }
-        public function scopeGenderSearch($query, $gender)
+    public function scopeGenderSearch($query, $gender)
     {
         if (!empty($gender)) {
             $query->where('gender', $gender);
