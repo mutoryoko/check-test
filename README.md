@@ -11,7 +11,7 @@
   docker compose exec php bash
   composer install
   ```
- .env.exampleファイルからenvファイルを作成し、環境変数を変更 \
+ .env.exampleファイルからenvファイルを作成し、環境変数を変更
   ```
   php artisan key:generate
   php artisan migrate 
@@ -26,7 +26,7 @@
 </ul>
 
 ## ユースケース図・ER図
-	![](./dir/usecase_ER.drawio.svg)
+![](usecase_ER.drawio.svg)
 
 ## URL
 <ul>
