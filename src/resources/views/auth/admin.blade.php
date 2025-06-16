@@ -1,97 +1,106 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Admin</title>
-  <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&family=Noto+Serif+JP&display=swap" rel="stylesheet">
-  {{-- ページネーション --}}
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
-  @livewireStyles
-</head>
-<body>
-  <header class="header">
-    <div class="header__inner">
-      <a href="#" class="header__logo">FashionablyLate</a>
-      <form class="header__btn" action="{{ route('logout') }}" method="POST">
-        @csrf
-        <button class="header__btn--submit" type="submit">logout</button>
-      </form>
-    </div>
-  </header>
-  <main>
-    <div class="content">
-      <div class="form__heading">
-        <h2 class="form__ttl">Admin</h2>
-      </div>
-      <div class="search-form__wrapper">
-        <form class="search-form" action="" method="get">
-          <div class="search-form__inputs">
-            <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
-            <select class="search-form__gender" name="gender">
-              <option value="">性別</option>
-              <option value="">全て</option>
-              @foreach (config('constants.genders') as $value => $label)
-                <option value="{{ $value }}">{{ $label }}</option>
-              @endforeach
-            </select>
-            <select class="search-form__category" name="category_id">
-              <option>お問い合わせの種類</option>
-              @foreach ($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->content }}</option>
-              @endforeach
-            </select>
-            <input class="search-form__date" type="date" name="date">
-          </div>
-          <div class="search-form__buttons">
-            <button class="search-form__btn--submit" type="submit">検索</button>
-            <button class="search-form__btn--reset" type="reset">リセット</button>
-          </div>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+    
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+    @livewireStyles
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <a href="#" class="header__logo">FashionablyLate</a>
+        <form class="header__btn" action="{{ route('logout') }}" method="POST">
+          @csrf
+          <button class="header__btn--submit" type="submit">logout</button>
         </form>
       </div>
-      <div class="d-flex justify-content-between align-items-center">
-        <a class="export__button" download="#">エクスポート</a>
-        @if(isset($contacts))
-          {{ $contacts->links() }}
-        @endif
-      </div>
-      <table class="contacts__table">
-        <thead class="contacts__table--head">
-          <tr>
-            <th class="table-label">お名前</th>
-            <th class="table-label">性別</th>
-            <th class="table-label">メールアドレス</th>
-            <th class="table-label">お問い合わせの種類</th>
-            <th class="table-label"></th>
-          </tr>
-        </thead>
-        <tbody class="contacts__table--body">
-        @if(isset($contacts))
-          @foreach ($contacts as $contact)
-            <tr class="tbody-row">
-                <td>{{ $contact->last_name }}　{{$contact->first_name}}</td>
-                <td>
-                  <input type="hidden" value="{{ $contact->gender }}" />
-                  {{ config('constants.genders')[$contact->gender] }}
-                </td>
-                <td>{{ $contact->email }}</td>
-                <td>{{ $contact->category->content }}</td>
-                <td>
-                    詳細
-                </td>
+    </header>
+    <main>
+      <div class="content">
+        <div class="form__heading">
+          <h2 class="form__ttl">Admin</h2>
+        </div>
+        {{-- 検索フォー厶 --}}
+        <div class="search-form__wrapper">
+          <form class="search-form" action="" method="get">
+            <div class="search-form__inputs">
+              <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
+              <select class="search-form__gender" name="gender">
+                <option value="">性別</option>
+                <option value="">全て</option>
+                @foreach (config('constants.genders') as $value => $label)
+                  <option value="{{ $value }}">{{ $label }}</option>
+                @endforeach
+              </select>
+              <select class="search-form__category" name="category_id">
+                <option>お問い合わせの種類</option>
+                @foreach ($categories as $category)
+                  <option value="{{ $category->id }}">{{ $category->content }}</option>
+                @endforeach
+              </select>
+              <input class="search-form__date" type="date" name="date">
+            </div>
+            <div class="search-form__buttons">
+              <button class="search-form__btn--submit" type="submit">検索</button>
+              <button class="search-form__btn--reset" type="reset">リセット</button>
+            </div>
+          </form>
+        </div>
+        {{-- エクスポートとページネーション --}}
+        <div class="d-flex justify-content-between align-items-center">
+          <a class="export__button" download="#">エクスポート</a>
+          @if(isset($contacts))
+            {{ $contacts->links() }}
+          @endif
+        </div>
+        {{-- 問合せ一覧表 --}}
+        @livewire('contact-list')
+        <table class="contacts__table">
+          <thead class="contacts__table--head">
+            <tr>
+              <th class="table-label">お名前</th>
+              <th class="table-label">性別</th>
+              <th class="table-label">メールアドレス</th>
+              <th class="table-label">お問い合わせの種類</th>
+              <th class="table-label"></th>
             </tr>
-          @endforeach
-        @endif
-        </tbody>
-      </table>
-    </div>
-  </main>
-  @livewireScripts
-</body>
+          </thead>
+          <tbody class="contacts__table--body">
+            @if(isset($contacts))
+              @foreach ($contacts as $contact)
+                <tr class="tbody-row">
+                    <td>{{ $contact->last_name }}　{{$contact->first_name}}</td>
+                    <td>
+                      <input type="hidden" value="{{ $contact->gender }}" />
+                      {{ config('constants.genders')[$contact->gender] }}
+                    </td>
+                    <td>{{ $contact->email }}</td>
+                    <td>{{ $contact->category->content }}</td>
+                    <td>
+                      <button type="button" class="btn btn-primary btn-sm" wire:click="showDetail({{ $contact->id }})">
+                        詳細
+                      </button>
+                    </td>
+                </tr>
+              @endforeach
+            @endif
+          </tbody>
+        </table>
+      </div>
+    </main>
+    {{-- モーダル --}}
+    @livewireScripts
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
