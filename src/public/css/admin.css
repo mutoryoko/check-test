@@ -11,7 +11,7 @@
   max-width: 1500px;
   height: 100px;
   border-bottom: 1px solid #e0dfde;
-  margin: 0;
+  margin: auto;
 }
 
 .header__inner {
@@ -163,7 +163,7 @@ input::placeholder {
 
 .contacts__table {
   width: 100%;
-  margin: 20px 0;
+  margin: 20px auto;
   border: 1px solid #e0dfde;
 }
 
@@ -174,11 +174,15 @@ input::placeholder {
   text-align: center;
 }
 
+.label--gender {
+  width: 120px;
+}
+
 .contacts__table--body td {
   color: #82756A;
   height: 50px;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   border-bottom: 1px solid #e0dfde;
 }
 

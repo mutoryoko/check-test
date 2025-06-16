@@ -18,9 +18,6 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 //フォーム画面
 Route::get('/', [ContactController::class, 'index'])->name('contact.index');

@@ -34,6 +34,7 @@
         <div class="search-form__wrapper">
           <form class="search-form" action="{{ route('search') }}" method="get">
             <div class="search-form__inputs">
+              {{-- キーワード検索（未完成） --}}
               <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください" value="{{ request('keyword')}}">
               <select class="search-form__gender" name="gender">
                 <option>性別</option>
@@ -52,6 +53,7 @@
                   </option>
                 @endforeach
               </select>
+              {{-- 日付検索（未完成） --}}
               <input class="search-form__date" type="date" name="created_at">
             </div>
             <div class="search-form__buttons">
@@ -60,9 +62,10 @@
             </div>
           </form>
         </div>
-        {{-- エクスポートボタン（未完成）、ページネーション --}}
         <div class="d-flex justify-content-between align-items-center">
+          {{-- エクスポートボタン（未完成） --}}
           <a class="export__button" download="#">エクスポート</a>
+          {{-- ページネーション --}}
           @if(isset($contacts))
             {{ $contacts->links() }}
           @endif
@@ -72,25 +75,25 @@
         <table class="contacts__table">
           <thead class="contacts__table--head">
             <tr>
-              <th class="table-label">お名前</th>
-              <th class="table-label">性別</th>
-              <th class="table-label">メールアドレス</th>
-              <th class="table-label">お問い合わせの種類</th>
-              <th class="table-label"></th>
+              <th class="table-label label--name">お名前</th>
+              <th class="table-label label--gender">性別</th>
+              <th class="table-label label--email">メールアドレス</th>
+              <th class="table-label label--cat">お問い合わせの種類</th>
+              <th class="table-label label--detail"></th>
             </tr>
           </thead>
           <tbody class="contacts__table--body">
             @if(isset($contacts))
               @foreach ($contacts as $contact)
                 <tr class="tbody-row">
-                    <td class="table--column">{{ $contact->last_name }}　{{$contact->first_name}}</td>
-                    <td class="table--column">
+                    <td class="table_column">{{ $contact->last_name }}　{{$contact->first_name}}</td>
+                    <td class="table_column">
                       <input type="hidden" value="{{ $contact->gender }}" />
                       {{ config('constants.genders')[$contact->gender] }}
                     </td>
-                    <td class="table--column">{{ $contact->email }}</td>
-                    <td class="table--column">{{ $contact->category->content }}</td>
-                    <td class="table--column">
+                    <td class="table_column">{{ $contact->email }}</td>
+                    <td class="table_column">{{ $contact->category->content }}</td>
+                    <td class="table_column">
                       <button wire:click="openModal({{ $contact->id }})" type="button" class="btn btn-primary btn-sm">
                         詳細
                       </button>
