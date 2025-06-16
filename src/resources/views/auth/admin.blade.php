@@ -60,7 +60,7 @@
             </div>
           </form>
         </div>
-        {{-- エクスポートとページネーション --}}
+        {{-- エクスポートボタン（未完成）、ページネーション --}}
         <div class="d-flex justify-content-between align-items-center">
           <a class="export__button" download="#">エクスポート</a>
           @if(isset($contacts))
@@ -68,7 +68,7 @@
           @endif
         </div>
         {{-- 問合せ一覧表 --}}
-        @livewire('contact-list')
+        {{-- @livewire('modal')モーダル（未完成）--}}
         <table class="contacts__table">
           <thead class="contacts__table--head">
             <tr>
@@ -91,7 +91,7 @@
                     <td class="table--column">{{ $contact->email }}</td>
                     <td class="table--column">{{ $contact->category->content }}</td>
                     <td class="table--column">
-                      <button type="button" class="btn btn-primary btn-sm" wire:click="showDetail({{ $contact->id }})">
+                      <button wire:click="openModal({{ $contact->id }})" type="button" class="btn btn-primary btn-sm">
                         詳細
                       </button>
                     </td>
@@ -102,9 +102,6 @@
         </table>
       </div>
     </main>
-    {{-- モーダル --}}
-    @livewireScripts
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    {{-- @livewireScripts モーダル（未完成）--}}
   </body>
 </html>
