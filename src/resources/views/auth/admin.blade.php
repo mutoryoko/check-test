@@ -29,7 +29,7 @@
         <h2 class="form__ttl">Admin</h2>
       </div>
       <div class="search-form__wrapper">
-        <form class="search-form" action="{{ route('search') }}" method="get">
+        <form class="search-form" action="" method="get">
           <div class="search-form__inputs">
             <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
             <select class="search-form__gender" name="gender">

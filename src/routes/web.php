@@ -43,9 +43,6 @@ Route::middleware('auth')->group(function () {
   //管理画面
   Route::resource('/admin', AdminContactController::class)->only(['index', 'show', 'destroy']);
 
-  // 検索
-  Route::get('/admin', [AdminContactController::class, 'search'])->name('search');
-
   // ログアウト
   Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

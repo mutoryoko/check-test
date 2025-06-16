@@ -25,6 +25,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        //エラーを解消するため、一旦ここに記載
         View::composer(
             ['index','auth.admin'],
             function ($view) {

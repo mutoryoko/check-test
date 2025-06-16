@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
-
+use Illuminate\Support\Facades\Log;
 
 class AdminContactController extends Controller
 {
@@ -15,20 +15,10 @@ class AdminContactController extends Controller
      */
     public function index()
     {
+        //config.constantsとViewServiceProviderを確認
         $contacts = Contact::with('category')->latest()->paginate(7);
 
         return view('auth.admin', compact('contacts'));
-    }
-
-    public function search(Request $request)
-    {
-        // $contacts = Contact::with('category')
-        //     ->CategorySearch($request->category_id)
-        //     ->KeywordSearch($request->keyword)
-        //     ->get();
-        // $categories = Category::all();
-
-        // return view('auth.admin', compact('contacts', 'categories'));
     }
 
     /**
