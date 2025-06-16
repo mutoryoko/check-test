@@ -10,8 +10,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&family=Noto+Serif+JP&display=swap" rel="stylesheet">
+  {{-- ページネーション --}}
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+  @livewireStyles
 </head>
 <body>
   <header class="header">
@@ -66,7 +68,7 @@
             <th class="table-label">性別</th>
             <th class="table-label">メールアドレス</th>
             <th class="table-label">お問い合わせの種類</th>
-            <th class="table-label">詳細</th>
+            <th class="table-label"></th>
           </tr>
         </thead>
         <tbody class="contacts__table--body">
@@ -76,11 +78,13 @@
                 <td>{{ $contact->last_name }}　{{$contact->first_name}}</td>
                 <td>
                   <input type="hidden" value="{{ $contact->gender }}" />
-                  {{ config('constants.genders')[$contact->gender] ?? '不明' }}
+                  {{ config('constants.genders')[$contact->gender] }}
                 </td>
                 <td>{{ $contact->email }}</td>
-                <td>{{ $contact->category->content ?? '未分類' }}</td>
-                <td>詳細</td>
+                <td>{{ $contact->category->content }}</td>
+                <td>
+                    詳細
+                </td>
             </tr>
           @endforeach
         @endif
@@ -88,5 +92,6 @@
       </table>
     </div>
   </main>
+  @livewireScripts
 </body>
 </html>
