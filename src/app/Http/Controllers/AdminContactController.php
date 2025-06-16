@@ -20,11 +20,13 @@ class AdminContactController extends Controller
     {
         //性別・カテゴリはconfig.constantsとViewServiceProviderを確認
         $contacts = Contact::with('category')
+        ->KeywordSearch($request->keyword)
+        ->GenderSearch($request->gender)
         ->CategorySearch($request->category_id)
-        //性別の検索入れる
-        ->KeywordSearch($request->keyword)->get();
+        ->DateSearch($request->created_at)
+        ->get();
 
-        return view('auth.admin', compact('todos'));
+        return view('auth.admin', compact('contacts'));
     }
 
     public function destroy(Request $request)

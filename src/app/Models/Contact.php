@@ -26,6 +26,23 @@ class Contact extends Model
         return $this->belongsTo(Category::class);
     }
 
+    // 検索フォーム
+
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if (!empty($keyword)) {
+            $query->where('name', 'like', '%' . $keyword . '%');
+            $query->where('email', 'like', '%' . $keyword . '%');
+        }
+    }
+
+    public function scopeGenderSearch($query, $gender)
+    {
+        if (!empty($gender)) {
+            $query->where('gender', $gender);
+        }
+    }
+
     public function scopeCategorySearch($query, $category_id)
     {
         if (!empty($category_id)) {
@@ -33,11 +50,10 @@ class Contact extends Model
         }
     }
 
-    public function scopeKeywordSearch($query, $keyword)
+    public function scopeDateSearch($query, $created_at)
     {
-        if (!empty($keyword)) {
-            $query->where('name', 'like', '%' . $keyword . '%');
-            $query->where('email', 'like', '%' . $keyword . '%');
+        if (!empty($created_at)) {
+            $query->where('created_at', $created_at);
         }
     }
 }
