@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&family=Noto+Serif+JP&display=swap" rel="stylesheet">
-    
+    {{-- ページネーションとモーダル読み込み --}}
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     @livewireStyles
@@ -32,7 +32,7 @@
         </div>
         {{-- 検索フォー厶 --}}
         <div class="search-form__wrapper">
-          <form class="search-form" action="" method="get">
+          <form class="search-form" action="{{ route('search') }}" method="get">
             <div class="search-form__inputs">
               <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
               <select class="search-form__gender" name="gender">

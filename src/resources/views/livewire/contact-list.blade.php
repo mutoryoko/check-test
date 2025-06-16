@@ -62,9 +62,11 @@
                         </tr>
                     </table>
                 </div>
-                <div class="modal-footer">
-                    <button wire:click="deleteContact({{ $selectedContact->id }})" class="btn btn-danger">削除</button>
-                </div>
+                <form class="delete-form" action="/delete?id{{ $selectedContact->id }}" method="post">
+                    @method('delete')
+                    @csrf
+                    <button wire:click="deleteContact({{ $selectedContact->id }})" class="delete-btn">削除</button>
+                </form>
                 @endif
             </div>
         </div>
