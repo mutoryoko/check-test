@@ -2,7 +2,7 @@
 
 ### Dockerビルド
   ```
-  git clone リンク
+  git clone git@github.com:mutoryoko/check-test.git
   docker compose up -d --build
   ```
 
