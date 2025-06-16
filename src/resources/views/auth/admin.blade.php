@@ -18,7 +18,7 @@
   <body>
     <header class="header">
       <div class="header__inner">
-        <a href="#" class="header__logo">FashionablyLate</a>
+        <a href="{{ route('admin.index') }}" class="header__logo">FashionablyLate</a>
         <form class="header__btn" action="{{ route('logout') }}" method="POST">
           @csrf
           <button class="header__btn--submit" type="submit">logout</button>
@@ -34,21 +34,25 @@
         <div class="search-form__wrapper">
           <form class="search-form" action="{{ route('search') }}" method="get">
             <div class="search-form__inputs">
-              <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください ">
+              <input class="search-form__keyword" name="keyword" type="search" placeholder="名前やメールアドレスを入力してください" value="{{ request('keyword')}}">
               <select class="search-form__gender" name="gender">
-                <option value="">性別</option>
+                <option>性別</option>
                 <option value="">全て</option>
                 @foreach (config('constants.genders') as $value => $label)
-                  <option value="{{ $value }}">{{ $label }}</option>
+                  <option value="{{ $value }}" {{ request('gender') == $value ? 'selected' : '' }}>
+                    {{ $label }}
+                  </option>
                 @endforeach
               </select>
               <select class="search-form__category" name="category_id">
-                <option>お問い合わせの種類</option>
+                <option value="">お問い合わせの種類</option>
                 @foreach ($categories as $category)
-                  <option value="{{ $category->id }}">{{ $category->content }}</option>
+                  <option value="{{ $category->id }}" {{ request('category_id') == $category->id ? 'selected' : '' }}>
+                    {{ $category->content }}
+                  </option>
                 @endforeach
               </select>
-              <input class="search-form__date" type="date" name="date">
+              <input class="search-form__date" type="date" name="created_at">
             </div>
             <div class="search-form__buttons">
               <button class="search-form__btn--submit" type="submit">検索</button>
@@ -79,14 +83,14 @@
             @if(isset($contacts))
               @foreach ($contacts as $contact)
                 <tr class="tbody-row">
-                    <td>{{ $contact->last_name }}　{{$contact->first_name}}</td>
-                    <td>
+                    <td class="table--column">{{ $contact->last_name }}　{{$contact->first_name}}</td>
+                    <td class="table--column">
                       <input type="hidden" value="{{ $contact->gender }}" />
                       {{ config('constants.genders')[$contact->gender] }}
                     </td>
-                    <td>{{ $contact->email }}</td>
-                    <td>{{ $contact->category->content }}</td>
-                    <td>
+                    <td class="table--column">{{ $contact->email }}</td>
+                    <td class="table--column">{{ $contact->category->content }}</td>
+                    <td class="table--column">
                       <button type="button" class="btn btn-primary btn-sm" wire:click="showDetail({{ $contact->id }})">
                         詳細
                       </button>

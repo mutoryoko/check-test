@@ -182,6 +182,6 @@ input::placeholder {
   border-bottom: 1px solid #e0dfde;
 }
 
-.tbody-row td:last-of-type {
+.contacts__table tbody-row:last-of-type {
   border-bottom: none;
 }

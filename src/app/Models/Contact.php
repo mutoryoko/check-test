@@ -31,16 +31,23 @@ class Contact extends Model
     public function scopeKeywordSearch($query, $keyword)
     {
         if (!empty($keyword)) {
-            $query->where('name', 'like', '%' . $keyword . '%');
-            $query->where('email', 'like', '%' . $keyword . '%');
+            $query->where(function ($q) use ($keyword) {
+                $q->where('last_name', 'like', '%' . $keyword . '%')
+                    ->orWhere('first_name', 'like', '%' . $keyword . '%')
+                    ->orWhere('email', 'like', '%' . $keyword . '%')
+                    ->orWhere('tel', 'like', '%' . $keyword . '%')
+                    ->orWhere('address', 'like', '%' . $keyword . '%')
+                    ->orWhere('building', 'like', '%' . $keyword . '%');
+            });
         }
+        return $query;
     }
-
-    public function scopeGenderSearch($query, $gender)
+        public function scopeGenderSearch($query, $gender)
     {
         if (!empty($gender)) {
             $query->where('gender', $gender);
         }
+        return $query;
     }
 
     public function scopeCategorySearch($query, $category_id)
@@ -48,12 +55,14 @@ class Contact extends Model
         if (!empty($category_id)) {
             $query->where('category_id', $category_id);
         }
+        return $query;
     }
 
     public function scopeDateSearch($query, $created_at)
     {
         if (!empty($created_at)) {
-            $query->where('created_at', $created_at);
+            $query->whereDate('created_at', $created_at);
         }
+        return $query;
     }
 }
