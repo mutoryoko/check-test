@@ -55,7 +55,9 @@
       </div>
       <div class="d-flex justify-content-between align-items-center">
         <a class="export__button" download="#">エクスポート</a>
-        {{-- {{ $contacts->links() }} --}}
+        @if(isset($contacts))
+          {{ $contacts->links() }}
+        @endif
       </div>
       <table class="contacts__table">
         <thead class="contacts__table--head">
@@ -68,18 +70,20 @@
           </tr>
         </thead>
         <tbody class="contacts__table--body">
-          {{-- @foreach ($contacts as $contact)
+        @if(isset($contacts))
+          @foreach ($contacts as $contact)
             <tr class="tbody-row">
                 <td>{{ $contact->last_name }}　{{$contact->first_name}}</td>
                 <td>
                   <input type="hidden" value="{{ $contact->gender }}" />
-                  {{ $gender_label }}
+                  {{ config('constants.genders')[$contact->gender] ?? '不明' }}
                 </td>
                 <td>{{ $contact->email }}</td>
-                <td>{{ $contact->category->content }}</td>
+                <td>{{ $contact->category->content ?? '未分類' }}</td>
                 <td>詳細</td>
             </tr>
-          @endforeach --}}
+          @endforeach
+        @endif
         </tbody>
       </table>
     </div>

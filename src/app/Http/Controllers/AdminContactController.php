@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contact;
-use App\Models\Category;
 
 
 class AdminContactController extends Controller
@@ -17,8 +16,6 @@ class AdminContactController extends Controller
     public function index()
     {
         $contacts = Contact::with('category')->latest()->paginate(7);
-
-        // $genders = config('constants.genders');
 
         return view('auth.admin', compact('contacts'));
     }
