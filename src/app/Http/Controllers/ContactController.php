@@ -39,6 +39,8 @@ class ContactController extends Controller
 
         $form = $input;
 
+        $fullname = $form['last_name'] . '　' . $form['first_name'];
+
         $genders = config('constants.genders');
         $gender_label = $genders[$form['gender']]; //value(数値)からlabel(文字列)へ変換
 
@@ -46,7 +48,7 @@ class ContactController extends Controller
 
         $category = Category::find($form['category_id']);
 
-        return view('confirm', compact('form', 'gender_label', 'category'));
+        return view('confirm', compact('form', 'fullname', 'gender_label', 'category'));
     }
 
     // 登録処理

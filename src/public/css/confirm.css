@@ -15,19 +15,10 @@ input {
   border: none;
   color: #82756A;
   font-size: 16px;
-  padding: 20px;
 }
 
-.name__input {
-  width: 180px;
-}
-
-.gender_label {
-  padding: 20px;
-}
-
-.category_name {
-  padding: 20px;
+.readonly {
+  padding: 20px 40px;
 }
 
 .confirm__content {
@@ -46,17 +37,16 @@ input {
 }
 
 .confirm-table__header {
+  width: 30%;
   background: #baa899;
   color: #fff;
   font-size: 16px;
-  padding: 20px;
+  padding: 10px 40px;
   text-align: left;
   border-bottom: 1px solid #e0dfde;
 }
 
 .confirm-table__input {
-  padding: 20px;
-  text-align: center;
   border-bottom: 1px solid #e0dfde;
 }
 
